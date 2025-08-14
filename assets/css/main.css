@@ -1663,7 +1663,7 @@ input, select, textarea {
 .animation-grid img {
   width: 100%;
   display: block;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
   border-radius: 10px;
 }
 
@@ -1681,6 +1681,23 @@ input, select, textarea {
 	 padding: 20px;
 
 	} 
+@media screen and (max-width: 736px) { 
+  .image.main { 
+    margin: 2rem 0; 
+  }
+  
+  .animation-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+	 .animation-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  
+  .animation-grid img {
+    margin-bottom: 0;
+  }
 	   
 .instagram-post { 
 	border-radius: 10px;
@@ -1877,3 +1894,4 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
