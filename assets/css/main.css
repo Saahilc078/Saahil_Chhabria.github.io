@@ -778,7 +778,152 @@ input, select, textarea {
 		dl dd {
 			margin-left: 2rem;
 		}
+		.timeline {
+			position: relative;
+			max-width: 700px;
+			margin: 50px auto;
+			padding: 0;
+		  }
+		
+		  /* Vertical line */
+		  .timeline::after {
+			content: '';
+			position: absolute;
+			left: 50%;
+			top: 0;
+			bottom: 0;
+			width: 3px;
+			background: #ccc;
+			transform: translateX(-50%);
+		  }
+		
+		  .timeline-item {
+			position: relative;
+			width: 50%;
+			padding: 20px 40px;
+			box-sizing: border-box;
+		  }
+		
+		  .timeline-item:nth-child(odd) {
+			left: 0;
+			text-align: right;
+		  }
+		
+		  .timeline-item:nth-child(even) {
+			left: 50%;
+			text-align: left;
+		  }
+		
+		  /* Dots */
+		  .timeline-item::before {
+			content: '';
+			position: absolute;
+			top: 25px;
+			width: 16px;
+			height: 16px;
+			background: #3498db;
+			border-radius: 50%;
+			border: 3px solid white;
+			box-shadow: 0 0 0 3px #3498db33;
+			z-index: 1;
+		  }
+		
+		  .timeline-item:nth-child(odd)::before {
+			right: -8px;
+		  }
+		
+		  .timeline-item:nth-child(even)::before {
+			left: -8px;
+		  }
+		
+		  /* Content box */
+		  .timeline-content {
+			background: rgb(1, 5, 12);
+			padding: 15px 20px;
+			border-radius: 8px;
+			box-shadow: 0 3px 10px rgba(248,242,191);
+			display: inline-block;
+   			transform-origin: right;
+    		transition: transform 0.3s ease;
+		  }
+	
+		.timeline-content a:hover {
+    	transform: translateX(25px);
+    	box-shadow: 0 0 15px #ffdd57;
+		}
+		.timeline-content h3 {
+			margin: 0 0 5px;
+			color: #3498db;
+		  }
+		
+		  .timeline-content p {
+			margin: 0;
+			color: #b3b3b3;
+		  }
+		  .timeline-content.has-link {
+    transition: all 0.3s ease;
+}
 
+.contact-box {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px 30px;
+    background: rgb(1, 5, 12);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(248,242,191,0.3);
+    color: #fff;
+    font-family: sans-serif;
+}
+
+.contact-box h3 {
+    margin-bottom: 15px;
+    color: #3498db;
+}
+
+.contact-box input,
+.contact-box textarea {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: none;
+    border-radius: 6px;
+    background: #0a0f1a;
+    color: #fff;
+    font-size: 14px;
+    box-sizing: border-box;
+}
+
+.contact-box input:focus,
+.contact-box textarea:focus {
+    outline: none;
+    box-shadow: 0 0 10px #3498db;
+}
+
+.contact-box button {
+    background: #3498db;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.contact-box button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #3498db;
+}
+.timeline-content.has-link:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #ffdd57;
+}
+		  
+#work section {
+  border-top: 2px solid #444;
+  padding-top: 20px;
+  margin-top: 40px;
+}
 /* Actions */
 
 	ul.actions {
@@ -1510,7 +1655,69 @@ input, select, textarea {
 		}
 
 /* Main */
+.animation-grid {
+  column-count: 2; /* number of columns */
+  column-gap: 15px;
+}
 
+.animation-grid img {
+  width: 100%;
+  display: block;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.animation-grid .image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    border-radius: 8px;
+}
+.instagram-grid { 
+	display: grid;
+	 grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+	gap: 20px; padding: 20px; 
+	} 
+	   
+.instagram-post { 
+	border-radius: 10px;
+	overflow:inherit ;
+	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+}
+.instagram-media {
+  max-width: 100% !important;
+  width: 100% !important;
+  margin: 0 auto !important;
+}
+
+@media (max-width: 900px) {
+  .instagram-grid {
+    column-count: 2;
+  }
+}
+@media (max-width: 600px) {
+  .instagram-grid {
+    column-count: 1;
+  }
+}
+#work.two-column {
+  display: flex;
+  gap: 2rem; /* space between columns */
+  flex-wrap: wrap; /* ensures mobile stacks them */
+}
+
+#work.two-column .column {
+  flex: 1; /* equal width */
+  min-width: 18rem; /* prevent too narrow columns */
+}
+
+/* Optional: visually separate */
+#work.two-column h2 {
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
 	#main {
 		-moz-flex-grow: 1;
 		-webkit-flex-grow: 1;
