@@ -1663,7 +1663,7 @@ input, select, textarea {
 .animation-grid img {
   width: 100%;
   display: block;
-  margin-bottom: 25px;
+  margin-bottom: 0;
   border-radius: 10px;
 }
 
@@ -1680,7 +1680,8 @@ input, select, textarea {
 	gap: 20px; padding: 20px; 
 	 padding: 20px;
 
-	}  
+	} 
+	   
 .instagram-post { 
 	border-radius: 10px;
 	overflow:hidden ;
@@ -1876,5 +1877,3 @@ input, select, textarea {
 		body.is-preload #footer {
 			opacity: 0;
 		}
-
-
