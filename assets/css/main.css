@@ -1406,10 +1406,24 @@ h1:hover, nav a:hover {
 		}
 @media (max-width: 768px) {
   #bg .bg-image {
-    animation: fadeCarousel 15s infinite; /* remove panSlow animation */
-    background-position: center center !important; /* keep image centered */
-    transform: scale(1.05); /* subtle zoom for depth */
+    animation: fadeCarousel 15s infinite, panVerySlow 30s infinite linear !important;
+    background-position: center center !important;
+    transform: scale(1.05) !important;
   }
+}
+
+/* 🐢 Desktop pan (moderate speed) */
+@keyframes panSlow {
+  0%   { background-position: center center; }
+  50%  { background-position: 48% center; } 
+  100% { background-position: center center; }
+}
+
+/* 🐌 Mobile pan (super slow, subtle movement) */
+@keyframes panVerySlow {
+  0%   { background-position: center center; }
+  50%  { background-position: 51% center; } /* tiny drift, just 1% */
+  100% { background-position: center center; }
 }
 
 /* Wrapper */
@@ -1956,4 +1970,5 @@ h1:hover, nav a:hover {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
 
