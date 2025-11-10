@@ -1404,6 +1404,13 @@ h1:hover, nav a:hover {
 		body.is-preload #bg:before {
 			background-color: #000000;
 		}
+@media (max-width: 768px) {
+  #bg .bg-image {
+    animation: fadeCarousel 15s infinite; /* remove panSlow animation */
+    background-position: center center !important; /* keep image centered */
+    transform: scale(1.05); /* subtle zoom for depth */
+  }
+}
 
 /* Wrapper */
 
@@ -1949,3 +1956,4 @@ h1:hover, nav a:hover {
 		body.is-preload #footer {
 			opacity: 0;
 		}
+
