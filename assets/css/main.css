@@ -821,7 +821,7 @@ input, select, textarea {
 			top: 25px;
 			width: 16px;
 			height: 16px;
-			background: #3498db;
+			background: #ffffff;
 			border-radius: 50%;
 			border: 3px solid white;
 			box-shadow: 0 0 0 3px #3498db33;
@@ -838,7 +838,7 @@ input, select, textarea {
 		
 		  /* Content box */
 		  .timeline-content {
-			background: rgb(1, 5, 12);
+			background: rgba(1, 5, 12, 0);
 			padding: 15px 20px;
 			border-radius: 8px;
 			box-shadow: 0 3px 10px rgba(248,242,191);
@@ -849,11 +849,11 @@ input, select, textarea {
 	
 		.timeline-content a:hover {
     	transform: translateX(25px);
-    	box-shadow: 0 0 15px #ffdd57;
+    	box-shadow: 0 0 15px #ffffff;
 		}
 		.timeline-content h3 {
 			margin: 0 0 5px;
-			color: #3498db;
+			color: #ffffff;
 		  }
 		
 		  .timeline-content p {
@@ -1256,7 +1256,111 @@ input, select, textarea {
 	button {
 		line-height: calc(2.75rem - 2px);
 	}
+.gm-carousel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
 
+/* Card (reuse your dark-glass vibe) */
+.gm-card {
+  background: rgba(22, 70, 153, 0);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(248,242,191,0.15);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+/* Hover = consistent with timeline glow */
+.gm-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #eeeeed;
+}
+
+/* Video container */
+.gm-video {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+}
+
+.gm-video video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Content */	
+.gm-content {
+  padding: 15px 18px;
+}
+
+.gm-content h3 {
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.gm-content p {
+  color: #b3b3b3;
+  font-size: 0.9rem;
+}
+
+/* Optional subtle overlay (matches image overlay style) */
+.gm-video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 25, 25, 0.164);
+  pointer-events: none;
+}
+#gm-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 15, 25, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+/* Active state */
+#gm-modal.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Video container */
+.gm-modal-inner {
+  width: 80%;
+  max-width: 1000px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 40px rgba(255, 221, 87, 0.3);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+/* Animate in */
+#gm-modal.active .gm-modal-inner {
+  transform: scale(1);
+}
+
+#gm-modal video {
+  width: 100%;
+  height: auto;
+  display: block;
+  background: black;
+}
 /* BG */
 #voidCanvas {
   position: fixed;
@@ -1425,6 +1529,7 @@ h1:hover, nav a:hover {
   50%  { background-position: 51% center; } /* tiny drift, just 1% */
   100% { background-position: center center; }
 }
+
 
 /* Wrapper */
 
@@ -1970,5 +2075,3 @@ h1:hover, nav a:hover {
 		body.is-preload #footer {
 			opacity: 0;
 		}
-
-
