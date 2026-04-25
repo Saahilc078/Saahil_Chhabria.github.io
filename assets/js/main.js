@@ -364,6 +364,7 @@
 
 		// Scroll restoration.
 		// This prevents the page from scrolling back to the top on a hashchange.
+		
 			if ('scrollRestoration' in history)
 				history.scrollRestoration = 'manual';
 			else {
@@ -397,5 +398,49 @@
 					$window.on('load', function() {
 						$main._show(location.hash.substr(1), true);
 					});
+					
+document.addEventListener("DOMContentLoaded", () => {
+
+  const cards = document.querySelectorAll(".gm-card");
+  const modal = document.getElementById("gm-modal");
+  const modalVideo = document.getElementById("gm-modal-video");
+
+  cards.forEach(card => {
+    card.addEventListener("click", () => {
+      const videoSrc = card.getAttribute("data-video");
+
+      modalVideo.src = videoSrc;
+      modal.classList.add("active");
+
+      modalVideo.currentTime = 0;
+      modalVideo.play();
+    });
+  });
+
+  // Close on click outside
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      closeModal();
+    }
+  });
+
+  // Close on ESC
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      closeModal();
+    }
+  });
+
+  function closeModal() {
+    modal.classList.remove("active");
+    modalVideo.pause();
+    modalVideo.src = "";
+  }
+
+});
+
 
 })(jQuery);
+
+
+
